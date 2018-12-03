@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <!-- collaborators and configuration for this com.neuedu.bean go here -->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/dspt?useUnicode=true&amp;
+        useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;
+        serverTimezone=UTC&amp;characterEncoding=utf8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="lidex123124"/>
+
+        <property name="maxActive" value="8"/>
+        <property name="minIdle" value="1"/>
+    </bean>
+    <!-- more com.neuedu.bean definitions go here... -->
+    <!--sql sessionfactory-->
+    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <property name="configLocation" value="classpath:spring/mybatis_confing.xml"/>
+        <property name="typeAliasesPackage" value="com.neuedu.bean"/>
+    </bean>
+    <!--注入spring容器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
+        <property name="basePackage" value="com.neuedu.dao"/>
+    </bean>
+</beans>

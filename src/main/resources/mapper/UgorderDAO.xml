@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.dao.UgorderDAO">
+    <select id="selectAll" resultType="com.neuedu.bean.Ugorder" >
+        select * from ugorder;
+    </select>
+    <select id="selectOne" resultType="com.neuedu.bean.Ugorder">
+        select * from ugorder where oid=#{oid};
+    </select>
+    <select id="selectSuccess" resultType="com.neuedu.bean.Ugorder">
+        select * from ugorder where oiffinish=1;
+    </select>
+    <select id="selectUnDelivery" resultType="com.neuedu.bean.Ugorder">
+        select * from ugorder where oifdelivery=0 and oifreturnorder=0;
+    </select>
+    <update id="pay">
+        update ugorder set oifpay = 1,paydate=#{paydate} where oid=#{oid};
+    </update>
+    <update id="delivery">
+        update ugorder set oifdelivery = 1,deliverydate=#{deliverydate} where oid=#{oid};
+    </update>
+    <update id="finish">
+        update ugorder set oiffinish = 1,finishdate=#{finishdate} where oid=#{oid};
+    </update>
+
+    <select id="Soifpay" resultType="Boolean">
+        select oifpay from ugorder where oid=#{oid};
+    </select>
+    <select id="Soifdelivery" resultType="Boolean">
+        select oifdelivery from ugorder where oid=#{oid};
+    </select>
+    <select id="Soiffinish" resultType="Boolean">
+        select oiffinish from ugorder where oid=#{oid};
+    </select>
+    <select id="Soifreturnorder" resultType="Boolean">
+        select oifreturnorder from ugorder where oid=#{oid};
+    </select>
+    <select id="Soifreturn" resultType="Boolean">
+        select oifreturn from ugorder where oid=#{oid};
+    </select>
+    <select id="Soifmoney" resultType="Boolean">
+        select oifreturn from ugorder where oid=#{oid};
+    </select>
+</mapper>

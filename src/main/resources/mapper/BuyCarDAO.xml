@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.dao.BuyCarDAO">
+    <select id="buycars" resultType="com.neuedu.bean.BuyCar">
+        select * from buycar where uid=#{uid};
+    </select>
+    <insert id="insertcar">
+        insert into buycar(gid,uid,num)
+        value (#{buycar.gid},#{buycar.uid},#{buycar.num});
+    </insert>
+
+    <delete id="deletecar">
+        delete from buycar where cid=#{cid};
+    </delete>
+    <update id="updatecar">
+        update buycar set num=#{num};
+    </update>
+</mapper>

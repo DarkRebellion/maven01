@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.dao.UserDAO">
+    <select id="selectAll" resultType="com.neuedu.bean.User" >
+        select * from usertable where ucondition=1;
+    </select>
+    <select id="selectBylv" resultType="com.neuedu.bean.User" >
+        select * from usertable where uauthority >= #{lv} and ucondition=1;
+    </select>
+    <select id="selectDelete" resultType="com.neuedu.bean.User" >
+        select * from usertable where ucondition=2;
+    </select>
+
+
+    <update id="deleteUser" >
+        update usertable set ucondition = 2 WHERE  unum= #{unum};
+    </update>
+    <update id="redeleteUser" >
+        update usertable set ucondition = 1 WHERE  unum= #{unum};
+    </update>
+    <update id="tudeleteUser" >
+        update usertable set ucondition = 3 WHERE  unum= #{unum};
+    </update>
+
+
+    <update id="changeraids" >
+        update usertable set uauthority=#{uauthority},raids = #{raids} WHERE  unum= #{unum};
+    </update>
+
+
+    <select id="selectByUnum" resultType="com.neuedu.bean.User" >
+        select * from usertable where unum=#{unum} and ucondition=1;
+    </select>
+   <update id="updateUser" >
+        update usertable
+        set uname=#{user.uname},upwd=#{user.upwd},usex=#{user.usex},ubirthday=#{user.ubirthday},
+        receiver=#{user.receiver},rtelephone=#{user.rtelephone},raddres=#{user.raddres}
+        WHERE  unum= #{user.unum} and ucondition=1;
+    </update>
+    <insert id="insertUser">
+        INSERT INTO usertable (unum,uname,upwd,ucondition,uauthority,raids)
+        VALUES (#{user.unum},#{user.uname},#{user.upwd},1,#{user.uauthority},=#{user.raids});
+    </insert>
+    <select id="loginBynamepassword" resultType="com.neuedu.bean.User" >
+        select * from usertable where unum=#{unum} and upwd=#{upwd};
+    </select>
+
+</mapper>

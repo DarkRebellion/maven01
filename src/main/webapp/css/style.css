@@ -1,0 +1,133 @@
+.login-content{
+    width: 500px;
+   /* background-color: red;*/
+    margin: 100px auto;
+    height:300px;
+
+
+}
+.login-content>div:nth-child(2){
+    height: 200px;
+}
+.login-content>div:nth-child(2)>form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.logo-style{
+    width: 100%;
+    text-align:center;
+}
+
+.but-style{
+    display: flex;
+    justify-content: center;
+}
+/*这是main页面*/
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.page-content{
+    width: 100%;
+    min-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+#left{
+    color: papayawhip;
+    background-color: #c7aac6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#left ul{
+    background-color: #c7aac6;
+}
+#left ul li a{
+    color: papayawhip;
+}
+#navbg{
+    padding: 0px;
+    width: 80%;
+}
+#left nav ul{
+    width: 100%;
+}
+#left nav ul li{
+    width: 100%;
+}
+.framestyle{
+    width: 100%;
+    height: 90%;
+    border: 0;
+
+}
+.item-foucs{
+    background-color: #46b8d1;
+}
+.item-click {
+    background-color: #7fd9c8;
+}
+.foot{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color: #d8a0ff;
+}
+
+/*搜索的效果*/
+.search-style>form{
+    display: flex;
+    align-items: center;
+}
+.search-style>form>input:first-child{
+    width: 200px;
+    height: 30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border:2px solid #e2e6ea ;
+    border-right: 0;
+}
+.search-style>form>i{
+    line-height: 25px;
+    height: 30px;
+    border:2px solid #16181b;
+    border-left: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.search-style>form>input:last-child{
+    position:relative;
+    right: 20px;
+    opacity: 0;
+
+}
+
+
+.m{
+    width: 300px;
+    height: 150px;
+    border-radius: 8px;
+    border:1px solid darkgreen;
+}
+.m .m-head{
+    background-color: darkgreen;
+    height: 20px;
+}
+
+.m .m-body{
+    height: 130px;
+}
+.m-content{
+    display: flex;
+    flex-wrap: wrap;
+}
